@@ -42,6 +42,8 @@
   font-family: Arial, sans-serif;
   padding: 20px;
   text-align: center;
+  height: 100vh;
+  background-color: rgb(12, 116, 201);
 }
 
 button {
@@ -59,11 +61,21 @@ button {
 }
 
 h2 {
-  color: #333;
+  color: white;
   font-size: 20px;
+}
+
+
+h1 {
+  color: white;
+}
+
+.filetext {
+  color:white;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  color: white;
 }

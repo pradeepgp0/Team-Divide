@@ -75,6 +75,7 @@ const App = () => {
       <h1>Team Division</h1>
 
       <input
+        className='filetext'
         type="file"
         accept=".xlsx,.xls"
         onChange={handleFileUpload}
