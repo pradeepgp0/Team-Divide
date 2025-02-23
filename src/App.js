@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
+import './App.css';
 
 const App = () => {
   const [members, setMembers] = useState([]);
@@ -88,17 +89,22 @@ const App = () => {
       </button>
 
       <div className="teams">
+        <div>
         <h2>Red Team</h2>
         <ul>{teams.Red.map((member, index) => <li key={index}>{member}</li>)}</ul>
-
+        </div>
+        <div>
         <h2>Green Team</h2>
         <ul>{teams.Green.map((member, index) => <li key={index}>{member}</li>)}</ul>
-
+        </div>
+        <div>
         <h2>Blue Team</h2>
         <ul>{teams.Blue.map((member, index) => <li key={index}>{member}</li>)}</ul>
-
+        </div>
+        <div>
         <h2>Yellow Team</h2>
         <ul>{teams.Yellow.map((member, index) => <li key={index}>{member}</li>)}</ul>
+        </div>
       </div>
     </div>
   );
