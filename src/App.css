@@ -79,3 +79,8 @@ ul {
   padding: 0;
   color: white;
 }
+
+.headerrow {
+  display: flex;
+  place-content: center space-evenly;
+}

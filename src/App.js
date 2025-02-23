@@ -16,7 +16,7 @@ const App = () => {
         const sheetName = wb.SheetNames[0];
         const ws = wb.Sheets[sheetName];
         const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
-        
+
         const membersList = data.slice(1).map(row => row[0]); // Assuming the names are in the first column
         setMembers(membersList);
       };
@@ -40,15 +40,15 @@ const App = () => {
     setTeams(teamsCopy);
   };
 
-  
+
   const downloadExcel = () => {
     // Prepare data for the Excel file
     const data = [];
     const maxTeamSize = Math.max(teams.Red.length, teams.Green.length, teams.Blue.length, teams.Yellow.length);
-    
+
     // Add the headers for the columns
     data.push(['Red Team', 'Green Team', 'Blue Team', 'Yellow Team']);
-    
+
     // Add the team members into rows, making sure all teams have equal rows
     for (let i = 0; i < maxTeamSize; i++) {
       data.push([
@@ -73,38 +73,38 @@ const App = () => {
   return (
     <div className="App">
       <h1>Team Division</h1>
+      <div className='headerrow'>
+        <input
+          className='filetext'
+          type="file"
+          accept=".xlsx,.xls"
+          onChange={handleFileUpload}
+        />
 
-      <input
-        className='filetext'
-        type="file"
-        accept=".xlsx,.xls"
-        onChange={handleFileUpload}
-      />
+        <button onClick={divideTeams} disabled={members.length === 0}>
+          Divide Into Teams
+        </button>
 
-      <button onClick={divideTeams} disabled={members.length === 0}>
-        Divide Into Teams
-      </button>
-
-      <button onClick={downloadExcel} disabled={Object.keys(teams).length === 0}>
-        Download Teams as Excel
-      </button>
-
+        <button onClick={downloadExcel} disabled={Object.keys(teams).length === 0}>
+          Download Teams as Excel
+        </button>
+      </div>
       <div className="teams">
         <div>
-        <h2>Red Team</h2>
-        <ul>{teams.Red.map((member, index) => <li key={index}>{member}</li>)}</ul>
+          <h2>Red Team</h2>
+          <ul>{teams.Red.map((member, index) => <li key={index}>{member}</li>)}</ul>
         </div>
         <div>
-        <h2>Green Team</h2>
-        <ul>{teams.Green.map((member, index) => <li key={index}>{member}</li>)}</ul>
+          <h2>Green Team</h2>
+          <ul>{teams.Green.map((member, index) => <li key={index}>{member}</li>)}</ul>
         </div>
         <div>
-        <h2>Blue Team</h2>
-        <ul>{teams.Blue.map((member, index) => <li key={index}>{member}</li>)}</ul>
+          <h2>Blue Team</h2>
+          <ul>{teams.Blue.map((member, index) => <li key={index}>{member}</li>)}</ul>
         </div>
         <div>
-        <h2>Yellow Team</h2>
-        <ul>{teams.Yellow.map((member, index) => <li key={index}>{member}</li>)}</ul>
+          <h2>Yellow Team</h2>
+          <ul>{teams.Yellow.map((member, index) => <li key={index}>{member}</li>)}</ul>
         </div>
       </div>
     </div>
