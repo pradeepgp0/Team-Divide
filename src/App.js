@@ -66,7 +66,7 @@ const App = () => {
     XLSX.utils.book_append_sheet(wb, ws, 'Teams');
 
     // Download the Excel file
-    XLSX.writeFile(wb, 'divided_teams.xlsx');
+    XLSX.writeFile(wb, 'DividedSpardheyTeams.xlsx');
   };
 
 

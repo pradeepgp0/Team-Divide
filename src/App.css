@@ -65,6 +65,7 @@ button {
 h2 {
   color: white;
   font-size: 20px;
+  text-align: start;
 }
 
 
@@ -80,6 +81,7 @@ ul {
   list-style-type: none;
   padding: 0;
   color: white;
+  text-align: start;
 }
 
 .headerrow {
