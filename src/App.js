@@ -4,6 +4,7 @@ import './App.css';
 
 const App = () => {
   const [members, setMembers] = useState([]);
+  const [category, setCategory] = useState('');
   const [teams, setTeams] = useState({ Red: [], Green: [], Blue: [], Yellow: [] });
 
   const handleFileUpload = (e) => {
@@ -16,7 +17,7 @@ const App = () => {
         const sheetName = wb.SheetNames[0];
         const ws = wb.Sheets[sheetName];
         const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
-
+        setCategory(data[0][0]);
         const membersList = data.slice(1).map(row => row[0]); // Assuming the names are in the first column
         setMembers(membersList);
       };
@@ -89,6 +90,7 @@ const App = () => {
           Download Teams as Excel
         </button>
       </div>
+      <div><h1>{category}</h1></div>
       <div className="teams">
         <div>
           <h2>1st</h2>
